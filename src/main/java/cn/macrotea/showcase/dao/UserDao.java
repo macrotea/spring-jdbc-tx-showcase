@@ -85,6 +85,4 @@ public class UserDao {
         Assert.notNull(id, "在进行根据Id查询记录是否存在时,Id不能为NULL");
         return findById(id) != null;
     }
-
-
 }
