@@ -70,6 +70,7 @@ public class ArticleService {
                 articleTagDao.add(ta);
             }
         });
+
     }
 
 }
