@@ -4,7 +4,6 @@
 
 - 基于 Spring3 + Hiberate4 + H2/Mysql 整合开发且包含基本的CRUD功能
 - 基于 Maven3 构建项目
-- 基于 Bootstrap3 的前端页面开发
 
 ## 关注点 ##
 
