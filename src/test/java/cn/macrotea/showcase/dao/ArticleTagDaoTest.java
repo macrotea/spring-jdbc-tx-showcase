@@ -6,16 +6,16 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ActiveProfiles;
 
 import static org.junit.Assert.assertEquals;
+
+//TODO macrotea@qq.com 2014-08-05 15:55:49 archetype重命名
 
 /**
  * @author macrotea@qq.com
  * @since 2014-8-4 下午9:01
  */
-@ActiveProfiles({"mysql", "dbPrepare", "jdbcTemplate"})
-public class ArticleTagTest extends AbstractTests {
+public class ArticleTagDaoTest extends AbstractTests {
 
     @Autowired
     private ArticleTagDao articleTagDao;

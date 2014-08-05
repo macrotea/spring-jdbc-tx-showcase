@@ -6,16 +6,15 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ActiveProfiles;
 
 import static org.junit.Assert.assertEquals;
 
+//TODO macrotea@qq.com 2014-08-05 15:55:49 重命名
 /**
  * @author macrotea@qq.com
  * @since 2014-8-4 下午9:01
  */
-@ActiveProfiles({"mysql", "dbPrepare", "jdbcTemplate"})
-public class ArticleTest extends AbstractTests {
+public class ArticleDaoTest extends AbstractTests {
 
     @Autowired
     private ArticleDao articleDao;

@@ -6,7 +6,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ActiveProfiles;
 
 import static org.junit.Assert.assertEquals;
 
@@ -14,7 +13,6 @@ import static org.junit.Assert.assertEquals;
  * @author macrotea@qq.com
  * @since 2014-8-4 下午9:01
  */
-@ActiveProfiles({"h2", "hibernate4"})
 public class UserDaoTest extends AbstractTests {
 
     @Autowired
@@ -33,7 +31,7 @@ public class UserDaoTest extends AbstractTests {
     @Test
     public void testSaveOrUpdate() throws Exception {
         User u = User.randomMe();
-        userDao.saveOrUpdate(u);
+        userDao.add(u);
         User target = userDao.findById(u.getId());
 
         assertEquals(u.getUsername(), target.getUsername());

@@ -5,6 +5,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @author macrotea@qq.com
@@ -17,9 +18,12 @@ public class Article implements Serializable {
 
     private String articleName;
 
+    private Date addTime;
+
     public static Article randomMe() {
         Article a = new Article();
         a.setArticleName(RandomStringUtils.randomAlphanumeric(10));
+        a.setAddTime(new Date());
         return a;
     }
 
@@ -40,6 +44,14 @@ public class Article implements Serializable {
 
     public void setArticleName(String articleName) {
         this.articleName = articleName;
+    }
+
+    public Date getAddTime() {
+        return addTime;
+    }
+
+    public void setAddTime(Date addTime) {
+        this.addTime = addTime;
     }
 
     @Override

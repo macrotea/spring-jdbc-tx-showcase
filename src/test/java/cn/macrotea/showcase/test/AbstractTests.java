@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @ContextConfiguration(locations = {
-        "classpath*:app-*"
+        "classpath:app-*"
     }
 )
 @RunWith(SpringJUnit4ClassRunner.class)
