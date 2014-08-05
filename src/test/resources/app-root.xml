@@ -45,4 +45,8 @@
         <constructor-arg ref="dataSource"/>
     </bean>
 
+    <bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+        <property name="transactionManager" ref="jdbcTransactionManager"/>
+    </bean>
+
 </beans>

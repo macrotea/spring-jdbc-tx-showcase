@@ -62,7 +62,11 @@ public class ArticleTagDao {
 
     public ArticleTag findById(Long id) {
         Assert.notNull(id, "在进行根据Id查询时,Id不能为NULL");
-        return jdbcTemplate.queryForObject(FIND_ONE_SQL, new Object[]{id}, ParameterizedBeanPropertyRowMapper.newInstance(MODEL_CLAZZ));
+        try {
+            return jdbcTemplate.queryForObject(FIND_ONE_SQL, new Object[]{id}, ParameterizedBeanPropertyRowMapper.newInstance(MODEL_CLAZZ));
+        } catch (Exception e) {
+            return null;
+        }
     }
 }
 
