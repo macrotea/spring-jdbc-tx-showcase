@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import java.sql.Connection;
@@ -46,20 +47,24 @@ public class ArticleTagDao {
         tag.setId(keyHolder.getKey().longValue());
     }
 
+    @Transactional
     public int update(ArticleTag tag) {
         Assert.notNull(tag.getId(), "在进行更新操作时,Id不能为NULL");
         return jdbcTemplate.update(UPDATE_SQL, tag.getTagName(), tag.getAddTime(), tag.getId());
     }
 
+    @Transactional
     public int delete(ArticleTag tag) {
         Assert.notNull(tag.getId(), "在进行更新删除时,Id不能为NULL");
         return jdbcTemplate.update(DELETE_SQL, tag.getId());
     }
 
+    @Transactional(readOnly = true)
     public List<ArticleTag> findAll() {
         return jdbcTemplate.query(FIND_ALL_SQL, ParameterizedBeanPropertyRowMapper.newInstance(MODEL_CLAZZ));
     }
 
+    @Transactional(readOnly = true)
     public ArticleTag findById(Long id) {
         Assert.notNull(id, "在进行根据Id查询时,Id不能为NULL");
         try {
@@ -68,5 +73,12 @@ public class ArticleTagDao {
             return null;
         }
     }
+
+    @Transactional(readOnly = true)
+    public boolean exist(Long id) {
+        Assert.notNull(id, "在进行根据Id查询记录是否存在时,Id不能为NULL");
+        return findById(id) != null;
+    }
+
 }
 

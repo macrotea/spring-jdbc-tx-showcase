@@ -1,6 +1,5 @@
 package cn.macrotea.showcase.dao;
 
-import cn.macrotea.showcase.exception.NoPowerException;
 import cn.macrotea.showcase.model.Article;
 import cn.macrotea.showcase.test.AbstractTests;
 import org.junit.After;
@@ -51,7 +50,7 @@ public class ArticleDaoTransactionTest extends AbstractTests {
         assertFalse(articleDao.exist(b.getId()));
     }
 
-    @Test(expected = NoPowerException.class)
+    @Test
     public void test_deletePair_but_exception_and_rollback() throws Exception {
         //prepare
         Article a = Article.randomMe();
@@ -60,7 +59,11 @@ public class ArticleDaoTransactionTest extends AbstractTests {
         articleDao.add(b);
 
         //then
-        articleDao.deletePair(a, b, true);
+        try {
+            articleDao.deletePair(a, b, true);
+        } catch (Exception ignore) {
+            //e.printStackTrace();
+        }
 
         //check
         assertTrue(articleDao.exist(a.getId()));

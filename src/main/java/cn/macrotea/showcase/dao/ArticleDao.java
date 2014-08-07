@@ -2,7 +2,6 @@ package cn.macrotea.showcase.dao;
 
 import cn.macrotea.showcase.exception.NoPowerException;
 import cn.macrotea.showcase.model.Article;
-import org.springframework.aop.support.AopUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
@@ -79,7 +78,7 @@ public class ArticleDao {
 
     @Transactional
     public int delete(Article a) {
-        Assert.notNull(a.getId(), "在进行更新删除时,Id不能为NULL");
+        Assert.notNull(a.getId(), "在进行删除操作时,Id不能为NULL");
         return jdbcTemplate.update(DELETE_SQL, a.getId());
     }
 

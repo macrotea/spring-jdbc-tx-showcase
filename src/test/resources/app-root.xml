@@ -34,7 +34,7 @@
     </jdbc:initialize-database>
 
     <!--启用:@Transactional且基于无接口的类代理-->
-    <tx:annotation-driven transaction-manager="jdbcTransactionManager" proxy-target-class="false"/>
+    <tx:annotation-driven transaction-manager="jdbcTransactionManager" proxy-target-class="true"/>
 
     <!--JDBC DataSource事务管理器-->
     <bean id="jdbcTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

@@ -9,8 +9,6 @@
     <url>http://www.macrotea.cn</url>
 
     <properties>
-        <!-- 构建名称 -->
-        <finalName>jdbc</finalName>
         <java.version>1.7</java.version>
 
         <!-- 项目编码 -->
